@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "linkwatch"
+version = "0.1.0"
+description = "Markdown and HTML link health checker"
+requires-python = ">=3.10"
+dependencies = ["requests>=2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+linkwatch = "linkwatch.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
