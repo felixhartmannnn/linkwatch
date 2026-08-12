@@ -15,5 +15,8 @@ dev = ["pytest>=7"]
 [project.scripts]
 linkwatch = "linkwatch.cli:main"
 
+[project.urls]
+Repository = "https://github.com/felixhartmannnn/linkwatch"
+
 [tool.setuptools.packages.find]
 where = ["."]
