@@ -31,11 +31,13 @@ linkwatch/
     test_parser.py
     test_checker.py
     test_reporter.py
-    test_cli.py
   pyproject.toml
   README.md
   .gitignore
 ```
 
-## Tags
-`python`, `cli`, `links`, `health-check`, `docs`, `markdown`, `developer-tools`
+## Repository
+https://github.com/felixhartmannnn/linkwatch
+
+## License
+MIT
