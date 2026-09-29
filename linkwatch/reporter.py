@@ -9,7 +9,10 @@ from linkwatch.models import LinkResult
 class TextReporter:
     def render(self, results: List[LinkResult]) -> str:
         lines = ["Link Report", f"Total: {len(results)}", ""]
-        lines.extend(f"[{'OK' if r.ok else 'FAIL'}] {r.url} ({r.status}) <- {r.source}" for r in results)
+        lines.extend(
+            f"[{'OK' if r.ok else 'FAIL'}] {r.url} ({r.status}) <- {r.source}"
+            for r in results
+        )
         lines.append("")
         failed = [r for r in results if not r.ok]
         lines.append(f"Failed: {len(failed)}/{len(results)}")

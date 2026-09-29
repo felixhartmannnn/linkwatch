@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import re
 from pathlib import Path
-from typing import List, Optional
+from typing import List
 
-from linkwatch.models import LinkResult, ParseResult
+from linkwatch.models import ParseResult
+
 
 ILLEGAL_CHARS = re.compile(r"[^\w\-._~:/?#\[\]@!$&'()*+,;=%]")
 
@@ -32,7 +33,7 @@ class LinkParser:
                 continue
             if in_code or stripped.startswith("#"):
                 continue
-            for raw_url in re.findall(r"https?://[^\s)>\]']+", line):
+            for raw_url in re.findall(r"https?://[^\s)>\]\']+", line):
                 clean = self._clean_url(raw_url)
                 if clean:
                     out.append(clean)
@@ -40,7 +41,7 @@ class LinkParser:
 
     def _parse_html(self, text: str) -> List[str]:
         out = []
-        for raw_url in re.findall(r"https?://[^\s)>\]']+", text):
+        for raw_url in re.findall(r"https?://[^\s)>\]\']+", text):
             clean = self._clean_url(raw_url)
             if clean:
                 out.append(clean)

@@ -31,7 +31,9 @@ def test_parse_collects_links(tmp_path):
 
 def test_check_stdlib_fetches_local_file():
     Path("/tmp/linkwatch-local-ok.txt").write_text("ok")
-    result = _fetch_stdlib("file:///tmp/linkwatch-local-ok.txt", timeout=2, user_agent="test")
+    result = _fetch_stdlib(
+        "file:///tmp/linkwatch-local-ok.txt", timeout=2, user_agent="test"
+    )
     assert result[1] is True
     assert result[2] in {200, None}
 

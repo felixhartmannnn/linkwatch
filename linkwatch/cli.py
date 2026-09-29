@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import sys
 from pathlib import Path
-from typing import List, Optional, Set
+from typing import List, Optional
 
 from linkwatch.checker import LinkChecker
 from linkwatch.reporter import TextReporter, JsonReporter
@@ -39,8 +39,16 @@ def parse_args(argv: List[str]) -> argparse.Namespace:
     parser.add_argument("path", help="File or directory to inspect")
     parser.add_argument("--format", choices=["text", "json"], default="text")
     parser.add_argument("--output", "-o", help="Write report to a file")
-    parser.add_argument("--timeout", type=int, default=10, help="HTTP timeout in seconds")
-    parser.add_argument("--concurrency", type=int, default=8, help="Max concurrent requests")
-    parser.add_argument("--fail-on-error", action="store_true", help="Exit non-zero on any failure")
-    parser.add_argument("--extensions", default=".md,.markdown,.html,.htm", help="Extensions to inspect")
+    parser.add_argument(
+        "--timeout", type=int, default=10, help="HTTP timeout in seconds"
+    )
+    parser.add_argument(
+        "--concurrency", type=int, default=8, help="Max concurrent requests"
+    )
+    parser.add_argument(
+        "--fail-on-error", action="store_true", help="Exit non-zero on any failure"
+    )
+    parser.add_argument(
+        "--extensions", default=".md,.markdown,.html,.htm", help="Extensions to inspect"
+    )
     return parser.parse_args(argv)

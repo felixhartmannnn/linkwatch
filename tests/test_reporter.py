@@ -1,12 +1,21 @@
 import json
-from linkwatch.models import LinkResult, LinkResult, LinkResult
+from linkwatch.models import LinkResult
 from linkwatch.reporter import TextReporter, JsonReporter
 
 
 def _results():
     return [
-        LinkResult(url="https://ok.test", source="a.md", ok=True, status=200, length=10),
-        LinkResult(url="https://bad.test", source="b.md", ok=False, status=500, length=0, error="server error"),
+        LinkResult(
+            url="https://ok.test", source="a.md", ok=True, status=200, length=10
+        ),
+        LinkResult(
+            url="https://bad.test",
+            source="b.md",
+            ok=False,
+            status=500,
+            length=0,
+            error="server error",
+        ),
     ]
 
 
